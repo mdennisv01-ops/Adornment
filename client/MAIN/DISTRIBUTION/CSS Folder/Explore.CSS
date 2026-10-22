@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #FAF6F0;
+}
+.heading p{
+    background: #FAF6F0;
+    text-align: center;
+    font-size: 48px;
+    padding: 20px;
+    transform: translateY(18px);
+}
+.Main-container{
+    height: 200vh;
+    width: 100%;
+    background: #FAF6F0;
+}
+.jewerlery-set1{
+    display: flex;
+    flex-direction: row;
+    padding: 35px;
+    gap: 12px;
+}
+.Jewerlyset-container1 {
+    /* border: 1px solid black; */
+    width: 350px;
+}
+.Jewerlyset-container1 img{
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+.Jewerlyset-container1 .image-text h6{
+    font-size: 30px;
+    /* border: 1px solid black; */
+    margin-top: 10px;
+}
+.Jewerlyset-container1 .image-text p{
+    /* border: 1px solid black; */
+    margin-top: 10px;
+    font-size: 25px;
+}
+.Jewerlyset-container1 .image-text .btn{
+    border: 2px solid #FAF6F0;
+    border-radius: 8px;
+    margin-top:10px;
+    font-size: 18px;
+    padding: 8px;
+     background: #C1A47E;
+}
+.image-text  .btn a{
+    text-decoration: none;
+    color: #FAF6F0;
+}
+.jewerlery-set2{
+ display: flex;
+ flex-direction: row;  
+ padding: 45px; 
+ transform: translateY(-14px);
+ gap: 10px;
+}
+.jewerlery-set3{
+    display: flex;
+    flex-direction: row;
+    padding: 45px;
+    gap: 10px;
+}
+/* ================= MOBILE MEDIA QUERIES ================= */
+
+@media (max-width: 768px) {
+    .Main-container {
+        height: auto;
+    }
+
+    .heading p {
+        font-size: 28px;
+        padding: 15px;
+    }
+
+    .jewerlery-set1,
+    .jewerlery-set2,
+    .jewerlery-set3 {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 25px;
+        transform: none;
+    }
+
+    .Jewelryset-container1 {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .Jewelryset-container1 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Jewelryset-container1 .image-text h6 {
+        font-size: 22px;
+    }
+
+    .Jewelryset-container1 .image-text p {
+        font-size: 20px;
+    }
+
+    .Jewelryset-container1 .image-text .btn {
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .heading p {
+        font-size: 22px;
+    }
+}

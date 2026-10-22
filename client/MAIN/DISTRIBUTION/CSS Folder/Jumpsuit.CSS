@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Main-container{
+    background: #FAF6F0;
+    height: 100vh;
+    width: 100%;
+}
+.jewerlery-set1{
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    /* border: 1px solid black; */
+    justify-content: center;
+    gap: 20px;
+    background: #FAF6F0;
+    transform: translateY(5px);
+}
+.jewelry1{
+    /* border: 1px solid black; */
+    width: 350px;
+    background: #FAF6F0;
+    overflow: hidden;
+}
+.jewelry1 img{
+    width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+.jewerlery-set1 .jewelry1 h6{
+     /* border: 1px solid black; */
+  font-size: 30px;
+    margin-top: 10px;
+}
+.jewerlery-set1 .jewelry1 p{
+     font-size: 30px;
+    margin-top: 5px;
+}
+.pp{
+     transform: translateY(5px);
+    background: #FAF6F0;
+     text-align: center;
+    font-size: 48px;
+    padding: 20px;
+    /* border: 1px solid black; */
+}
+.jewerlery-set1 .jewelry1 .btn{
+     border: 2px solid #FAF6F0;
+    border-radius: 8px;
+    margin-top:10px;
+    font-size: 18px;
+    padding: 8px;
+    background:#C1A47E;
+}
+.jewelry1 .image-text .btn a{
+    text-decoration: none;
+    color: #FAF6F0;
+}
+
+
+/* ================= MOBILE VIEW (max-width: 768px) ================= */
+@media (max-width: 768px) {
+
+    /* Let the container grow with content instead of clipping at 100vh */
+    .Main-container{
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    /* Page heading */
+    .pp{
+        font-size: 22px;
+        padding: 18px 10px;
+    }
+
+    /* Each row wraps into a 2-column grid instead of forcing 1 or 3-4 across */
+    .jewerlery-set1{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        padding: 10px 14px;
+    }
+
+    /* Each card takes ~45% so two sit side by side */
+    .jewelry1{
+        width: 45%;
+    }
+    .jewelry1 img{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+    }
+
+    .jewerlery-set1 .jewelry1 h6{
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 1.3;
+    }
+    .jewerlery-set1 .jewelry1 p{
+        font-size: 13px;
+        margin-top: 4px;
+    }
+    .jewerlery-set1 .jewelry1 .btn{
+        font-size: 11px;
+        padding: 6px 10px;
+        margin-top: 6px;
+    }
+}

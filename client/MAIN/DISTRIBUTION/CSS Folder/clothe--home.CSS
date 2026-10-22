@@ -1,0 +1,681 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; 
+} 
+.navbar{
+    background: #FAF6F0;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.navbar nav a{
+    text-decoration: none;
+    outline: none;
+    color: black;
+    font-size: 18px;
+}
+.navbar nav a:hover{
+     border-bottom: 1px solid #C1A47E;
+    font-size: 20px;
+}
+.navbar nav{
+    display: flex;
+    gap: 40px;
+}
+.icons{
+    font-size: 20px;
+}
+.logo{
+    font-size: 20px;
+}
+.drop-down{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    position: absolute;
+    display: none;
+    background-color: #FAF6F0;
+    z-index: 1;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+}
+.dropdown-content a{
+    padding: 12px 16px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+}
+.dropdown-content a:hover{
+    background-color: #e6dfd5;
+    color: #C1A47E;
+}
+.drop-down:hover .dropdown-content {
+ display: flex;
+}
+i{
+    display: flex;
+    cursor: pointer;
+}
+.icons a {
+    text-decoration: none;
+    color: black;
+}
+.Home img{
+ width: 100%;
+ height: auto;
+ display: block;
+}
+
+.Home{
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+}
+.Textoverimage{
+    position: absolute;
+    top: 22%;
+    left: 8%;
+    /* border: 1px solid black; */
+}
+.Textoverimage h2{
+    margin-bottom: 5%;
+    /* border: 1px solid black; */
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+.Textoverimage p{
+    font-size: 36px;
+    margin-bottom: 5%;
+}
+.btn{
+    height: 48px;
+    width: 55%;
+    background: #A98C5A;
+    color: #FAF6F0;
+    border: 1px solid #A98C5A;
+    /* border-radius: 10px; */
+}
+.btn a{
+    text-decoration: none;
+    outline: none;
+    color: #FAF6F0;
+    font-size: 15px;
+}
+.Main-container{
+    background: #FAF6F0;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+.before-Main-container{
+     background: #FAF6F0;
+}
+.pp{
+    background: #FAF6F0;
+    text-align: center;
+    font-size: 43px;
+    /* border: 1px solid black; */
+    /* padding: 10px; */
+    padding-top: 3%;
+}
+.image2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-top: 50px;
+}
+.image2 img{
+    width: 90%;
+    height: 70%;
+    /* scale: auto; */
+}
+.image2 h5 {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.image2 p{
+    margin-top: 18px;
+    font-size: 20px;
+    margin-bottom: -5px;
+}
+.image2  a{
+    text-decoration: none;
+    outline: none;
+    color: black;
+}
+.image2 h4{
+    margin-bottom: 50px;
+    font-weight: bolder;
+    font-size: 14px;
+}
+.Main-container2{
+    background: #FAF6F0;
+    display: flex;
+    justify-content: center;
+}
+.image3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    border: 5px solid transparent;
+}
+.image3 img{
+    width: 50%;
+    height: 50%;
+    /* scale: 0.5; */
+}
+
+.image3 h4{
+    font-size: 23px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.image3 h3{
+    font-size: 23px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    margin-right: 150px;
+    /* border: 1px solid black ; */
+}
+
+.image3 .btn2{
+  border: 2px solid #C1A47E; ;
+  width: 70%;
+  height: 7%;
+ margin-right: 60px;
+ text-align: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: #C1A47E;
+ border-radius: 5px;
+ color:#FAF6F0;
+}
+.btn2 a{
+    text-decoration: none;
+    color:#FAF6F0;
+    font-size: 18px;
+}
+.Main-container3{
+    background: #FAF6F0;
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    width: 95%;
+    height: 50vh;
+}
+.left-side img{
+  width: 100%;
+  height: 100%;
+}
+.right-side{
+    display: flex;
+    flex-direction: column;   
+    align-items: start;
+    /* border: 1px solid black; */
+    transform: translateY(20%);
+    /* transform: translateX(30%) ; */
+}
+.right-side p{
+    font-size: 48px;
+    text-align: center;
+    /* border: 1px solid black; */
+    padding: 20px;
+}
+.right-side h6{
+    /* border: 1px solid black; */
+    font-size: 28px;
+    padding: 5px;
+    transform: translateX(13px);
+}
+.right-side a{
+    /* border: 1px solid black; */
+    transform: translateX(12px);
+    padding: 5px;
+    color: black;
+    font-size: 23px;
+}
+footer p{
+    /* border: 1px solid black; */
+    width: 30%;
+    margin-left: 110px;
+    transform: translateY(46px);
+    font-size: 20px;
+    font-weight: 600;
+}
+.Main-container5{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 40vh;
+}
+.Main-container5 .container1{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    width: 40%;
+    gap: 33px;
+    padding: 30px;
+    margin-top: 30px;   
+}
+.container1 img{
+  width: 40%;
+  height: 100%;
+  scale: 1.2; 
+}
+.Main-container5 .container2{
+    /* border: 1px solid black; */
+    margin-top: 10px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 8%;
+}
+.container2 a{
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 28px;
+}
+.Main-container5 .container3{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container3 h5{
+ font-size: 25px;  
+ /* border: 1px solid black; */
+ margin-bottom: 12px;
+}
+.container3 input{
+    padding: 15px;
+    width: 100%;
+    height: 10%;
+}
+/* ================= HAMBURGER (hidden on desktop by default) ================= */
+.menu-toggle{
+    display: none;
+}
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger span{
+    width: 24px;
+    height: 2px;
+    background: black;
+    display: block;
+}
+
+/* ================= MOBILE VIEW (max-width: 768px) ================= */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar{
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        position: relative;
+    }
+    .logo h3{
+        font-size: 18px;
+    }
+    .icons{
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+
+    /* Nav links collapse into a dropdown, toggled by the checkbox */
+    .navbar nav{
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF6F0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+        z-index: 20;
+    }
+    .navbar nav a{
+        padding: 14px 18px;
+        border-bottom: 1px solid #e6ddd0;
+        font-size: 14px;
+    }
+    #menu-toggle:checked ~ nav{
+        max-height: 300px;
+    }
+
+    /* Hero */
+    .Textoverimage{
+        top: 8%;
+        left: 6%;
+        right: 8%;
+    }
+    .Textoverimage h2{
+        font-size: 24px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    .Textoverimage p{
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .Home{
+        zoom: 0.8;
+    }
+    .btn{
+        width: auto;
+        height: auto;
+        padding: 12px 20px;
+    }
+    .btn a{
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    /* Category row: horizontal scroll instead of squeezed row */
+    .Main-container{
+        justify-content: space-around;
+        gap: 8px;
+        padding: 25px 18px 10px;
+    }
+    .image2{
+        flex: 0 0 auto;
+        width: 130px;
+        margin-top: 0;
+    }
+    .image2 img{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    .image2 h5{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .image2 p{
+        font-size: 12px;
+        margin-top: 4px;
+    }
+    .image2 h4{
+        display: none;
+    }
+
+    /* Bestsellers: 2-column grid */
+    .pp p{
+        font-size: 22px;
+        padding: 20px 0;
+    }
+    .Main-container2{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        padding: 0 14px;
+    }
+    .image3{
+        width: 45%;
+        margin-top: 10px;
+    }
+    .image3 img{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+    }
+    .image3 h4{
+        font-size: 13px;
+        text-align: center;
+    }
+    .image3 h3{
+        font-size: 14px;
+        margin-right: 0;
+        text-align: center;
+    }
+    .image3 .btn2{
+        width: 100%;
+        height: auto;
+        padding: 8px 0;
+        margin-right: 0;
+    }
+    .btn2 a{
+        font-size: 11px;
+    }
+
+    /* Summer banner: stack image over text */
+    .Main-container3{
+        flex-direction: column;
+        height: auto;
+        margin: 20px 16px;
+        width: auto;
+    }
+    .left-side img{
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+    .right-side{
+        transform: none;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .right-side p{
+        font-size: 24px;
+        padding: 0 0 10px;
+    }
+    .right-side h6{
+        font-size: 15px;
+        transform: none;
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    .right-side a{
+        transform: none;
+        font-size: 15px;
+        padding: 0;
+    }
+
+    /* Footer */
+    footer p{
+        width: auto;
+        margin-left: 0;
+        transform: none;
+        text-align: center;
+        font-size: 15px;
+        padding: 16px 0;
+    }
+    .Main-container5{
+        flex-direction: column;
+        align-items: center;
+    }
+    .Main-container5 .container1{
+        width: auto;
+        justify-content: center;
+        gap: 14px;
+        padding: 10px 0 20px;
+        margin-top: 0;
+    }
+    .container1 img{
+        width: 55px;
+        height: 55px;
+        scale: 1;
+        object-fit: cover;
+    }
+    .Main-container5 .container2{
+        align-items: center;
+        margin-right: 0;
+        gap: 2px;
+    }
+    .Main-container5 .container3{
+        width: 85%;
+        margin: 20px 0;
+    }
+    .container3 input{
+        width: 100%;
+    }
+}
+
+
+
+
+/* ================= MOBILE VIEW (max-width: 768px) =================
+@media (max-width: 768px) {
+
+    Navbar: stack logo above links, let links wrap
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+    }
+    .navbar nav{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 10px;
+    }
+    .navbar nav a{
+        font-size: 12px;
+    }
+    .icons{
+        display: none; hide on mobile, or replace with a menu icon
+    }
+    .logo h3{
+        font-size: 18px;
+    }
+
+    Hero section: shrink and reposition text over image
+    .Textoverimage{
+        top: 10%;
+        left: 5%;
+        right: 5%;
+    }
+    .Textoverimage h2{
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+    .Textoverimage p{
+        font-size: 14px;
+        margin-bottom: 8%;
+    }
+    .btn{
+        width: 20%;
+        height: 36px;
+        font-size: 12px;
+    }
+
+    Jewelry set / rings / necklaces row: stack vertically
+    .Main-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .image2{
+        width: 80%;
+        margin-top: 25px;
+    }
+
+    Bestsellers grid: 2 columns instead of 1 row of 4
+    .Main-container2{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .image3{
+        width: 45%;
+        margin-top: 20px;
+    }
+    .image3 h4{
+        font-size: 14px;
+        text-align: center;
+    }
+    .image3 h3{
+        font-size: 14px;
+        margin-right: 0;
+        text-align: center;
+    }
+    .image3 .btn2{
+        width: 90%;
+        margin-right: 0;
+        height: 32px;
+    }
+    .btn2 a{
+        font-size: 12px;
+    }
+
+    Summer banner: stack image and text
+    .Main-container3{
+        flex-direction: column;
+        height: auto;
+        margin: 15px;
+        width: 92%;
+    }
+    .right-side{
+        transform: none;
+        align-items: center;
+        text-align: center;
+    }
+    .right-side p{
+        font-size: 26px;
+        padding: 12px;
+    }
+    .right-side h6{
+        font-size: 16px;
+        transform: none;
+        text-align: center;
+    }
+    .right-side a{
+        transform: none;
+        font-size: 16px;
+    }
+
+    Footer: stack everything vertically
+    footer p{
+        width: 90%;
+        margin-left: 0;
+        text-align: center;
+        transform: none;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+    .Main-container5{
+        flex-direction: column;
+        align-items: center;
+    }
+    .Main-container5 .container1{
+        width: 90%;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+    .Main-container5 .container2{
+        margin-right: 0;
+        align-items: center;
+        gap: 8px;
+    }
+    .Main-container5 .container3{
+        width: 90%;
+        margin: 15px 0;
+    }
+    .container3 input{
+        width: 90%;
+    }
+} */

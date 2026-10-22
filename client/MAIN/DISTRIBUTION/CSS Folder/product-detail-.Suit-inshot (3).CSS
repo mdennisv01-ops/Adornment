@@ -1,0 +1,362 @@
+*{ 
+    box-sizing: border-box;
+     margin: 0;
+    padding: 0; 
+    }
+
+body {
+  background: #f7f6ee;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+}
+
+a { 
+    color: inherit; 
+    text-decoration: none;
+ }
+
+.navbar{
+    background: #FAF6F0;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.navbar nav a{
+    text-decoration: none;
+    outline: none;
+    color: black;
+    font-size: 18px;
+}
+.navbar nav a:hover{
+    border-bottom: 1px solid #C1A47E;
+    font-size: 20px;
+}
+.navbar nav{
+    display: flex;
+    gap: 40px;
+}
+.icons{
+    font-size: 20px;
+}
+.logo{
+    font-size: 20px;
+}
+.drop-down{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    position: absolute;
+    display: none;
+    background-color: #FAF6F0;
+    z-index: 1;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+}
+.dropdown-content a{
+    padding: 12px 16px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+}
+.dropdown-content a:hover{
+    background-color: #e6dfd5;
+    color: #C1A47E;
+}
+.drop-down:hover .dropdown-content {
+ display: flex;
+}
+i {
+    display: flex;
+    cursor: pointer;
+}
+/* ================= HAMBURGER (hidden on desktop by default) ================= */
+.menu-toggle{
+    display: none;
+}
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger span{
+    width: 24px;
+    height: 2px;
+    background: black;
+    display: block;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    padding: 40px 130px 70px;
+    align-items: start;
+}
+.product-image img{
+   display: block;
+   width: 420px;
+   max-width: 100%;
+   aspect-ratio: 570 / 956;
+   object-fit: cover;
+   margin: 0 auto;
+   border: 1px solid #e0dac8;
+}
+h1{
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.price{
+    font-size: 30px;
+    margin: 10px 0 18px;
+}
+.description{
+    font-size: 17px;
+    line-height: 1.6;
+    color: #2c2820;
+    max-width: 520px;
+}
+
+.label {
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 26px 0 12px;
+}
+.label span { 
+font-weight: 400; 
+text-transform: none;
+letter-spacing: 0;
+color: #6b6250;
+margin-left: 6px;
+}
+
+  .colors input, .sizes input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.colors {
+   display: flex; 
+   gap: 14px; 
+  }
+.colors label { 
+  cursor: pointer; 
+}
+.swatch {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #cfc8b4;
+  outline-offset: 3px;
+}
+.colors input:checked + .swatch { 
+  outline: 2px solid #a48d5a; 
+}
+.colors input:focus-visible + .swatch { 
+  outline: 2px dashed #000; 
+}
+
+.sizes {
+   display: flex;
+    gap: 10px;
+   }
+.sizes label {
+   cursor: pointer;
+   }
+.sizes span {
+display: block;
+min-width: 46px;
+text-align: center;
+padding: 9px 0;
+border: 1px solid #cfc8b4;
+font-size: 15px;
+}
+.sizes input:checked + span {
+background: #a48d5a;
+color: #fff;
+    border-color: #a48d5a; 
+}
+.sizes input:focus-visible + span {
+outline: 2px dashed #000;
+}
+
+.btn {
+margin-top: 28px;
+background: #a48d5a;
+color: #fff;
+border: none;
+cursor: pointer;
+font-family: Arial, sans-serif;
+font-size: 15px;
+letter-spacing: 1px;
+text-transform: uppercase;
+padding: 15px 46px;
+}
+.btn:hover { 
+background: #8f7a4b; 
+}
+
+
+.vendor {
+margin-top: 34px;
+background: #e1ddcd;
+padding: 20px 24px;
+max-width: 520px;
+}
+.vendor .label {
+margin: 0 0 12px;
+}
+.vendor dl { 
+display: grid;
+grid-template-columns: 92px 1fr; 
+row-gap: 6px; 
+font-size: 17px;
+line-height: 1.7;
+}
+.vendor dt {
+color: #6b6250; 
+font-size: 14px;
+letter-spacing: 1px; 
+text-transform: uppercase;
+align-self: center;
+ }
+
+
+/* Radio inputs are position:absolute, so give their labels a positioning parent
+   (stops the page jumping when a swatch/size is focused) */
+.colors label,
+.sizes label {
+     position: relative;
+     }
+
+.vendor dd { 
+    overflow-wrap: anywhere;
+ }
+
+/* ================= TABLET (max-width: 1024px) ================= */
+@media (max-width: 1024px) {
+    .navbar { justify-content: space-between; padding: 15px 28px; }
+    .navbar nav { gap: 24px; }
+
+    .product {
+        gap: 40px;
+        padding: 40px 48px 60px;
+    }
+    h1 { font-size: 34px; }
+    .price { font-size: 26px; }
+}
+
+/* ================= MOBILE (max-width: 768px) ================= */
+@media (max-width: 768px) {
+
+    /* ---- Navbar ---- */
+    .navbar {
+        justify-content: flex-start;
+        align-items: center;
+        padding: 14px 18px;
+        position: relative;
+    }
+    .logo { order: 1; }
+    .logo h3 { font-size: 18px; }
+
+    /* keep search / account / bag visible, sitting beside the hamburger */
+    .icons {
+        order: 2;
+        display: flex;
+        gap: 18px;
+        margin-left: auto;
+        margin-right: 18px;
+        font-size: 18px;
+    }
+    .hamburger {
+        order: 3;
+        display: flex;
+        padding: 6px 0;           /* bigger tap area */
+    }
+
+    /* Nav collapses into a panel toggled by the checkbox */
+    .navbar nav {
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF6F0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+        z-index: 20;
+    }
+    #menu-toggle:checked ~ nav {
+        max-height: 80vh;         /* was 300px - too short once WEARS is open */
+        overflow-y: auto;
+    }
+    .navbar nav a {
+        padding: 14px 18px;
+        border-bottom: 1px solid #e6ddd0;
+        font-size: 14px;
+    }
+    /* stop the hover font-size jump (hover doesn't exist on touch anyway) */
+    .navbar nav a:hover {
+        font-size: 14px;
+        border-bottom: 1px solid #e6ddd0;
+    }
+
+    /* WEARS submenu: hover dropdowns don't work on touch, so list it inline */
+    .drop-down { display: block; }
+    .drop-down > i { display: none; }
+    .dropdown-content {
+        position: static;
+        display: flex;
+        min-width: 0;
+        box-shadow: none;
+        background: #f3ede3;
+    }
+    .navbar nav .dropdown-content a {
+        padding: 12px 18px 12px 34px;
+        font-size: 13px;
+    }
+
+    /* ---- Product page ---- */
+    .product {
+        grid-template-columns: 1fr;   /* stack image above details */
+        gap: 28px;
+        padding: 24px 20px 48px;
+    }
+    .product-image img {
+        width: 100%;
+        max-width: 420px;
+        max-height: 70vh;
+        object-position: top;
+    }
+    h1 { font-size: 30px; }
+    .price { font-size: 24px; margin: 8px 0 14px; }
+    .description { font-size: 16px; max-width: none; }
+    .label { margin: 22px 0 10px; }
+
+    .colors, .sizes { flex-wrap: wrap; }
+    .swatch { width: 40px; height: 40px; }      /* comfortable tap size */
+    .sizes span { min-width: 48px; padding: 11px 0; }
+
+    .btn { width: 100%; padding: 16px 20px; }
+    .vendor { max-width: none; padding: 18px; }
+}
+
+/* ================= SMALL PHONES (max-width: 480px) ================= */
+@media (max-width: 480px) {
+    .product { padding: 20px 16px 40px; }
+    h1 { font-size: 26px; }
+    .vendor dl { grid-template-columns: 1fr; row-gap: 0; }
+    .vendor dd { margin-bottom: 10px; }
+    .vendor dd:last-child { margin-bottom: 0; }
+}

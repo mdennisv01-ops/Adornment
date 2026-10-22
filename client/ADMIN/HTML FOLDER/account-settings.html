@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings - Glow & Co.</title>
+  <link rel="stylesheet" href="../Distribution Folder/CSS/account-settings.css">
+  <script src="../api-config.js"></script><script src="../admin-api.js"></script>
+  <script src="../Distribution Folder/Javascript/account-settings.js" defer></script>
+</head>
+<body>
+
+  <main class="settings-container">
+    <h1 class="page-title">Account Settings</h1>
+
+    <!-- Settings Cards Grid Layout -->
+    <div class="settings-grid">
+      
+      <!-- Card 1: Seller Profile & Branding -->
+      <section class="settings-card">
+        <h2 class="card-title">Seller Profile & Branding</h2>
+        
+        <div class="profile-branding-container">
+          <div class="logo-box-wrapper">
+            <div class="logo-preview">
+              <span class="logo-initial">A</span>
+              <span class="logo-name">ATONEMENT.</span>
+            </div>
+            <button class="btn btn-gold full-btn">Change Profile Photo</button>
+          </div>
+
+          <div class="form-fields flex-grow">
+            <div class="form-group">
+              <label class="input-label">Store Name</label>
+              <input type="text" class="form-input" value="ATONEMENT.">
+            </div>
+
+            <div class="form-group">
+              <label class="input-label">Store URL</label>
+              <input type="text" class="form-input" value="">
+            </div>
+
+            <div class="form-group">
+              <label class="input-label">Business Description</label>
+              <textarea class="form-textarea" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 2: Personal Details & Contact -->
+      <section class="settings-card">
+        <h2 class="card-title">Personal Details & Contact</h2>
+        
+        <div class="form-fields">
+          <div class="form-group">
+            <label class="input-label">Account Holder Name</label>
+            <input id="staff-name" type="text" class="form-input" value="">
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Public Email</label>
+            <input id="staff-email" type="email" class="form-input" value="" readonly>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Contact Number</label>
+            <input id="staff-phone" type="tel" class="form-input" value="">
+          </div>
+
+          <button class="btn btn-secondary full-btn btn-margin-top">Reset Password</button>
+          <button id="save-profile" class="btn btn-gold full-btn btn-margin-top" type="button">Save Profile</button>
+        </div>
+      </section>
+
+      <!-- Card 3: Payout & Banking Methods -->
+      <section class="settings-card">
+        <h2 class="card-title">Payout & Banking Methods</h2>
+        
+        <div class="payment-badges-row">
+          <span class="pay-badge stripe">stripe</span>
+          <span class="pay-badge paypal">PayPal</span>
+          <span class="pay-badge card-icon">💳</span>
+          <span class="pay-badge bank-icon">🏛️</span>
+          <span class="pay-badge visa">VISA</span>
+        </div>
+
+        <div class="form-fields">
+          <div class="form-group">
+            <select class="form-select">
+              <option>Bank Transfer (ACH/Swift)</option>
+              <option>Stripe Express Direct</option>
+              <option>PayPal Business Account</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Provider account reference (from Stripe Connect / Paystack)">
+          </div>
+
+          <div class="form-row-dual">
+            <div class="form-group flex-1">
+              <label class="input-label">Bank name</label>
+              <input type="text" class="form-input" placeholder="Bank name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Last four digits only" maxlength="4" inputmode="numeric">
+          </div>
+
+          <div class="bank-connect-row">
+            <span class="secure-text">🔒 Secure</span>
+            <button class="btn btn-gold">Connect Bank</button>
+          </div>
+
+          <p class="helper-text">Configure how and where you receive funds from completed sales.</p>
+        </div>
+      </section>
+
+      <!-- Card 4: Store Preferences & Shipping -->
+      <section class="settings-card">
+        <h2 class="card-title">Store Preferences & Shipping</h2>
+        
+        <div class="form-fields">
+          <div class="form-group">
+            <label class="input-label">Currency</label>
+            <select class="form-select">
+              <option>USD - $</option>
+              <option>EUR - €</option>
+              <option>GBP - £</option>
+              <option>NGN - ₦</option>
+            </select>
+          </div>
+
+          <div class="toggle-row">
+            <label class="input-label">Tax Settings</label>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Default Shipping Carrier</label>
+            <select class="form-select">
+              <option>DHL, FedEx</option>
+              <option>USPS Priority</option>
+              <option>UPS Ground</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Free Shipping Threshold</label>
+            <input type="text" class="form-input" placeholder="$100.00">
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Returns Policy</label>
+            <select class="form-select">
+              <option>Standard 30-Day Window</option>
+              <option>14-Day Store Credit</option>
+              <option>Final Sale / No Returns</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="../admin-nav.js"></script>
+</body>
+</html>

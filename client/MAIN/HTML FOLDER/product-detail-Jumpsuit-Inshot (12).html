@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumpsuit</title>
+ <link rel="stylesheet" href="../DISTRIBUTION/CSS Folder/product-detail-Jumpsuit-Inshot (12).CSS">
+<link rel="stylesheet" href="../css/all.min.css">
+</head>
+<body>
+    <!-- NAV (same as your other pages) -->
+  <div class="navbar">
+    <div class="logo">
+        <h3>ATONEMENT.</h3>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+    </label>
+
+    <nav>
+        <a href="../HTML FOLDER/clothe-home.html">HOME</a>
+        <a href="../HTML FOLDER/About-us.html">ABOUT US</a>
+          <a href="../HTML FOLDER/Contactus.html">CONTACT US</a>
+        <div class="drop-down">
+        <a href="../HTML FOLDER/Gowns.html">WEARS</a>
+        <i class="fa-solid fa-angle-down"></i>
+        <div class="dropdown-content">
+        <a href="../HTML FOLDER/Gowns.html">GOWNS</a>
+        <a href="../HTML FOLDER/Suit.html"> SUITS </a>
+        <a href="../HTML FOLDER/Jumpsuit.html">JUMPSUIT</a>
+        <a href="../HTML FOLDER/Collars&Ties.html"> COLLARS & TIES </a>
+        <a href="../HTML FOLDER/2-piece.html"> TWO-PIECES</a>
+         <a href="../HTML FOLDER/AI.html">AI-STUDIO</a>
+        <a href="../HTML FOLDER/login.html">LOGIN</a>   
+        </div>
+        </div>
+    </nav>
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bag-shopping"></i>
+    </div>
+</div>
+
+  <main class="product">
+
+   <div class="product-image">
+     <img src="../DISTRIBUTION/Images/Jumpsuit-Inshot (12).jpg" alt="">
+   </div>
+
+   <section class="product-info">
+ <h1> Sparkle Jumpsuit</h1>
+ <p class="price">$325</p>
+ <p class="description">
+    A signature piece from the ATONEMENT collection. Check the live shop listing for current pricing, available options, and stock.
+ </p>
+
+ <h2 class="label">Color <span id="color-name">Burgundy</span>
+</h2>
+ 
+ <div class="colors">
+<label>
+          <input type="radio" name="color" value="Burgundy" checked><span class="swatch" style="background:#5b1a2b"></span>
+        </label>
+
+        <label>
+          <input type="radio" name="color" value="Ivory"><span class="swatch" style="background:#f1e8d6"></span>
+        </label>
+
+        <label>
+          <input type="radio" name="color" value="Olive"><span class="swatch" style="background:#6f7456"></span>
+        </label>
+
+        <label>
+          <input type="radio" name="color" value="Gold"><span class="swatch" style="background:#b79a5b"></span>
+        </label>
+
+        <label>
+          <input type="radio" name="color" value="Black"><span class="swatch" style="background:#1d1d1f"></span>
+        </label>
+ </div>
+      
+     <h2 class="label">Size</h2>
+      <div class="sizes">
+        <label>
+          <input type="radio" name="size" value="XS"><span>XS</span>
+        </label>
+
+        <label>
+          <input type="radio" name="size" value="S"><span>S</span>
+        </label>
+
+        <label>
+          <input type="radio" name="size" value="M" checked><span>M</span>
+        </label>
+
+        <label>
+          <input type="radio" name="size" value="L"><span>L</span>
+        </label>
+
+        <label>
+          <input type="radio" name="size" value="XL"><span>XL</span>
+        </label>
+      </div>
+
+      <button class="btn" type="button">Add to bag</button>
+
+
+      <div class="vendor">
+        <h2 class="label">Vendor details</h2>
+        <dl>
+          <dt>Vendor</dt>
+          <dd>Amara Okafor Atelier</dd>
+          <dt>Location</dt>
+          <dd>12 Adeola Odeku St, Victoria Island, Lagos</dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+2348012345678">+234 801 234 5678</a></dd>
+        </dl>
+      </div>
+
+
+   </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('input[name="color"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        document.getElementById('color-name').textContent = radio.value;
+      });
+    });
+  </script>
+
+  <script src="../api-config.js"></script>
+  <script src="../storefront-api.js"></script>
+  <script src="../storefront-nav.js"></script>
+</body>
+</html>

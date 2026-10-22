@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f4eee0;
+  color: #1f1f1f;
+  padding: 30px;
+}
+
+/* Standalone Settings Container */
+.settings-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* Grid Layout for Settings Cards */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .settings-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card Styling */
+.settings-card {
+  background-color: #f8f5f0;
+  border: 1px solid #d1c7b7;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 18px;
+}
+
+/* Forms & Inputs */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background-color: #eee7d8;
+  border: 1px solid #d1c7b7;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: #1f1f1f;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: #c2a366;
+}
+
+.profile-branding-container {
+  display: flex;
+  gap: 18px;
+}
+
+.logo-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 130px;
+}
+
+.logo-preview {
+  width: 120px;
+  height: 120px;
+  background-color: #e8e1d5;
+  border: 1px dashed #d1c7b7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-initial {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.8rem;
+  color: #ab8d53;
+}
+
+.logo-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+/* Payment Badges */
+.payment-badges-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.pay-badge {
+  background-color: #eee7d8;
+  border: 1px solid #d1c7b7;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pay-badge.stripe {
+  color: #635bfc;
+}
+
+.pay-badge.paypal {
+  color: #003087;
+}
+
+.pay-badge.visa {
+  color: #1a1f71;
+}
+
+.form-row-dual {
+  display: flex;
+  gap: 12px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.bank-connect-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.secure-text {
+  font-size: 0.8rem;
+  color: #666666;
+}
+
+.helper-text {
+  font-size: 0.75rem;
+  color: #666666;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-gold {
+  background-color: #c2a366;
+  color: #ffffff;
+}
+
+.btn-gold:hover {
+  background-color: #ab8d53;
+}
+
+.btn-secondary {
+  background-color: #eee7d8;
+  color: #1f1f1f;
+  border: 1px solid #d1c7b7;
+}
+
+.full-btn {
+  width: 100%;
+}
+
+.btn-margin-top {
+  margin-top: 6px;
+}
+
+/* Toggle Switch */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #d1c7b7;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #c2a366;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

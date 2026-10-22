@@ -1,0 +1,400 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f4eee0;
+  color: #1f1f1f;
+  padding: 24px;
+}
+
+.studio-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.studio-header {
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #1f1f1f;
+}
+
+/* 2-Column Grid for Workspace */
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .studio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.grid-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Reusable Box / Card Styling */
+.card-box {
+  background-color: #f8f5f0;
+  border: 1px solid #d1c7b7;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.box-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 12px;
+}
+
+.section-label, .control-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666666;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* BOX 1: Garment Carousel */
+.garment-carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.garment-item {
+  background-color: #ffffff;
+  border: 1px solid #d1c7b7;
+  border-radius: 8px;
+  padding: 8px;
+  width: 110px;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.garment-item.active {
+  border: 2px solid #c2a366;
+  background-color: #fcfaf7;
+}
+
+.check-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: #c2a366;
+  color: #ffffff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 90px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.garment-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.garment-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.garment-price {
+  font-size: 0.7rem;
+  color: #666666;
+}
+
+.selected-text {
+  font-size: 0.85rem;
+  color: #444444;
+}
+
+/* BOX 2: Model Photo Upload */
+.upload-options {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.upload-dropzone {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px dashed #d1c7b7;
+  border-radius: 8px;
+  padding: 8px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.uploaded-preview-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.uploaded-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.replace-photo-btn {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(31, 31, 31, 0.8);
+  color: #ffffff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.preset-divider {
+  font-size: 0.85rem;
+  color: #666666;
+  font-weight: 500;
+}
+
+.preset-models {
+  flex: 1;
+}
+
+.preset-title {
+  font-size: 0.8rem;
+  color: #666666;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.preset-grid {
+  display: flex;
+  gap: 8px;
+}
+
+.preset-card {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #d1c7b7;
+  border-radius: 6px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.preset-card.active {
+  border-color: #c2a366;
+  background-color: #fdfbf7;
+}
+
+.preset-icon {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.preset-label {
+  font-size: 0.7rem;
+  color: #1f1f1f;
+}
+
+/* BOX 3: Refine Controls */
+.control-group {
+  margin-bottom: 12px;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.pill-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill-btn {
+  background-color: #ffffff;
+  border: 1px solid #d1c7b7;
+  border-radius: 16px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: #1f1f1f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn.active {
+  background-color: #c2a366;
+  color: #ffffff;
+  border-color: #c2a366;
+}
+
+/* BOX 4: AI Generation Canvas */
+.canvas-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.render-display {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background-color: #e8e1d5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.main-render-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flatlay-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 75px;
+  background: #ffffff;
+  border: 1px solid #d1c7b7;
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+}
+
+.overlay-tag {
+  font-size: 0.65rem;
+  color: #666666;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.flatlay-img {
+  width: 100%;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.canvas-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.btn {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: #e5dec9;
+  color: #1f1f1f;
+  border: 1px solid #d1c7b7;
+}
+
+.btn-primary {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.btn-gold {
+  background-color: #c2a366;
+  color: #ffffff;
+}
+
+.full-width-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9rem;
+  background-color: #c2a366;
+}
+
+/* BOX 5: Style Prompts & Bottom Actions */
+.prompt-description {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #444444;
+  margin-bottom: 12px;
+}
+
+.tags-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.prompt-tag {
+  background-color: #ffffff;
+  border: 1px solid #e2dacd;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.bottom-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.uploaded-photo[hidden],
+.main-render-img[hidden] {
+  display: none !important;
+}

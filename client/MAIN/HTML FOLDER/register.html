@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account | ATONEMENT.</title>
+  <link rel="stylesheet" href="../DISTRIBUTION/CSS Folder/login.css">
+  <script src="../api-config.js"></script><script src="../storefront-api.js"></script>
+</head>
+<body>
+  <div class="navbar"><div class="logo"><h3>ATONEMENT.</h3></div><nav><a href="clothe-home.html">HOME</a><a href="search_and_cart.html">SHOP</a><a href="login.html">SIGN IN</a></nav></div>
+  <main class="login"><section class="login__panel" aria-labelledby="register-title"><div class="login__card">
+    <h1 id="register-title">Create your account</h1><p class="login__intro">Join ATONEMENT. to keep your bag and orders together.</p>
+    <form class="form" id="register-form" novalidate>
+      <div class="field"><label for="username">Username</label><input id="username" name="username" autocomplete="username" minlength="3" maxlength="40" required><p class="field__error" id="username-error" role="alert"></p></div>
+      <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" minlength="7" maxlength="20" required><p class="field__error" id="phone-error" role="alert"></p></div>
+      <div class="field"><label for="email">Email (optional)</label><input id="email" name="email" type="email" autocomplete="email"><p class="field__error" id="email-error" role="alert"></p></div>
+      <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" minlength="12" required><p class="field__error" id="password-error" role="alert"></p></div>
+      <div class="field"><label for="confirm-password">Confirm password</label><input id="confirm-password" type="password" autocomplete="new-password" required><p class="field__error" id="confirm-error" role="alert"></p></div>
+      <p class="field__error" id="form-error" role="alert"></p><button type="submit" class="btn">Create account</button>
+    </form><p class="login__switch">Already have an account? <a href="login.html">Sign in</a></p>
+  </div></section></main>
+  <script>
+    const form=document.getElementById('register-form');
+    const fields={username:document.getElementById('username'),phone:document.getElementById('phone'),email:document.getElementById('email'),password:document.getElementById('password'),confirm:document.getElementById('confirm-password')};
+    function error(name,message){const input=fields[name];const box=document.getElementById(name==='confirm'?'confirm-error':name+'-error');box.textContent=message;if(input)input.setAttribute('aria-invalid',String(Boolean(message)));}
+    form.addEventListener('submit',async function(event){event.preventDefault();let valid=true;document.getElementById('form-error').textContent='';
+      if(fields.username.value.trim().length<3){error('username','Username must be at least 3 characters.');valid=false}else error('username','');
+      if(fields.phone.value.trim().length<7){error('phone','Enter a valid phone number.');valid=false}else error('phone','');
+      if(fields.email.value&&!fields.email.validity.valid){error('email','Enter a valid email address.');valid=false}else error('email','');
+      if(fields.password.value.length<12){error('password','Password must be at least 12 characters.');valid=false}else error('password','');
+      if(fields.confirm.value!==fields.password.value){error('confirm','Passwords do not match.');valid=false}else error('confirm','');
+      if(!valid)return;const button=form.querySelector('[type=submit]');button.disabled=true;button.textContent='Creating account…';
+      try{const base=window.API_BASE_URL||'http://localhost:4000/api';const response=await fetch(base+'/auth/customer/register',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({username:fields.username.value.trim(),phone:fields.phone.value.trim(),email:fields.email.value.trim()||undefined,password:fields.password.value})});const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.message||'Could not create your account.');window.StorefrontAPI.saveToken(payload.data&&payload.data.accessToken);let returnTo='clothe-home.html';try{const decoded=decodeURIComponent(new URLSearchParams(location.search).get('returnTo')||'');if(/^[A-Za-z0-9 _().&-]+\.html$/i.test(decoded))returnTo=decoded}catch(_){}location.href=returnTo}catch(e){document.getElementById('form-error').textContent=e.message}finally{button.disabled=false;button.textContent='Create account'}
+    });
+  </script>
+  <script src="../storefront-nav.js"></script>
+</body></html>

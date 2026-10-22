@@ -1,0 +1,3 @@
+'use client';
+import Link from 'next/link';import{usePathname}from'next/navigation';
+export default function AdminLayout({children}){const path=usePathname();if(path==='/admin/login')return children;return <div className="admin-layout"><aside className="admin-side"><Link className="wordmark" href="/admin">adornment<span style={{color:'#d09070'}}>.</span></Link><nav><Link href="/admin">◫ &nbsp;Overview</Link><Link href="/admin/products">▦ &nbsp;Products</Link><Link href="/admin/inventory">▤ &nbsp;Inventory</Link><Link href="/admin/orders">⌑ &nbsp;Orders</Link><Link href="/admin/login" onClick={()=>localStorage.removeItem('adornment_staff_access_token')}>↪ &nbsp;Sign out</Link></nav></aside><section className="admin-main">{children}</section></div>}

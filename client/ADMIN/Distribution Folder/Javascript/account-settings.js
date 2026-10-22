@@ -1,0 +1,19 @@
+document.addEventListener('DOMContentLoaded', async () => {
+  const api = window.AdminAPI; const name = document.getElementById('staff-name'); const email = document.getElementById('staff-email'); const phone = document.getElementById('staff-phone');
+  const button = document.getElementById('save-profile'); const status = document.createElement('p'); status.setAttribute('role','status'); button?.after(status);
+  try { const me = await api.request('/users/me'); name.value = me.name || ''; email.value = me.email || ''; phone.value = me.phone || ''; }
+  catch (error) { status.textContent = error.message; }
+  button?.addEventListener('click', async () => {
+    button.disabled = true; try { const me = await api.request('/users/staff/me', {method:'PATCH',body:JSON.stringify({name:name.value.trim(),phone:phone.value.trim()})}); name.value=me.name||'';phone.value=me.phone||'';status.textContent='Profile saved.'; }
+    catch(error){status.textContent=error.message;} finally{button.disabled=false;}
+  });
+  const reset = document.querySelector('.settings-card:nth-child(2) .btn-secondary');
+  reset?.addEventListener('click', async () => {
+    const currentPassword=prompt('Current password:'); if(currentPassword===null)return; const newPassword=prompt('New password (at least 8 characters):'); if(newPassword===null)return;
+    try { await api.request('/users/staff/me/password',{method:'POST',body:JSON.stringify({currentPassword,newPassword})});alert('Password changed.'); } catch(error){alert(error.message);}
+  });
+  const bankCard=document.querySelectorAll('.settings-card')[2]; const connect=bankCard?.querySelector('.bank-connect-row .btn-gold');
+  connect?.addEventListener('click',async()=>{const inputs=bankCard.querySelectorAll('.form-input');const providerChoice=bankCard.querySelector('select')?.value||'Bank Transfer';const provider=providerChoice.toLowerCase().includes('stripe')?'stripe':providerChoice.toLowerCase().includes('paypal')?'paypal':'bank-transfer';const reference=inputs[0]?.value.trim();const bankName=inputs[1]?.value.trim();const last4=inputs[2]?.value.trim();if(!reference){alert('Complete the provider hosted onboarding first, then enter its tokenized account reference. Do not enter a full account number.');return}try{await api.request('/users/staff/me/bank-account',{method:'POST',body:JSON.stringify({provider,providerAccountId:reference,bankName,accountLast4:last4||undefined})});alert('Provider account reference saved. Verification is pending.');}catch(error){alert(error.message)}});
+  document.querySelectorAll('.settings-card:nth-child(1) .form-input,.settings-card:nth-child(1) .form-textarea,.settings-card:nth-child(4) input,.settings-card:nth-child(4) select').forEach((input,index)=>{const key=`adornment_store_pref_${index}`;const stored=localStorage.getItem(key);if(stored!==null){if(input.type==='checkbox')input.checked=stored==='true';else input.value=stored}input.addEventListener('change',()=>localStorage.setItem(key,input.type==='checkbox'?String(input.checked):input.value))});
+  const logoButton=document.querySelector('.logo-box-wrapper .btn'); if(logoButton){const file=document.createElement('input');file.type='file';file.accept='image/*';file.hidden=true;document.body.append(file);logoButton.addEventListener('click',()=>file.click());file.addEventListener('change',async()=>{if(!file.files[0])return;const data=new FormData();data.append('avatar',file.files[0]);try{const profile=await api.request('/users/staff/me/avatar',{method:'POST',body:data});if(profile.avatarUrl){const preview=document.querySelector('.logo-preview');preview.textContent='';const img=document.createElement('img');img.src=(window.API_BASE_URL||'http://localhost:4000/api').replace(/\/api\/?$/,'')+profile.avatarUrl;img.alt='Account avatar';img.style.maxWidth='100%';preview.append(img)}}catch(error){alert(error.message)}})}
+});

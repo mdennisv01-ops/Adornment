@@ -1,0 +1,415 @@
+/* ==========================================================
+   ATONEMENT. login page
+   Palette and tone taken from the existing site:
+   cream page, sand story panel, muted gold buttons, serif type.
+   ========================================================== */
+
+:root {
+  --cream: #f6f5ec;
+  --sand: #e0dac6;
+  --gold: #a58f5b;
+  --gold-dark: #8a7647;
+  --ink: #1d1b16;
+  --muted: #6b6759;
+  --line: #cfc8b0;
+  --error: #9b2c2c;
+  --white: #fffefa;
+
+  /* Change this to a photo from your site, e.g. "images/suit.jpg" */
+  --login-image: url("images/login.jpg");
+
+  --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--ink);
+  /* font-family: var(--sans); */
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; 
+} 
+.navbar{
+    background: #FAF6F0;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.navbar nav a{
+    text-decoration: none;
+    outline: none;
+    color: black;
+    font-size: 18px;
+}
+.navbar nav a:hover{
+    border-bottom: 1px solid #C1A47E;
+    font-size: 20px;
+}
+.navbar nav{
+    display: flex;
+    gap: 40px;
+}
+.icons{
+    font-size: 20px;
+}
+.logo{
+    font-size: 20px;
+}
+.drop-down{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    position: absolute;
+    display: none;
+    background-color: #FAF6F0;
+    z-index: 1;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+}
+.dropdown-content a{
+    padding: 12px 16px;
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+}
+.dropdown-content a:hover{
+    background-color: #e6dfd5;
+    color: #C1A47E;
+}
+.drop-down:hover .dropdown-content {
+ display: flex;
+}
+i{
+    display: flex;
+    cursor: pointer;
+}
+.icons a {
+    text-decoration: none;
+    color: black;
+}
+
+/* ---------- Layout ---------- */
+.login {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+/* ---------- Image panel ---------- */
+.login__visual {
+  background: var(--sand);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+/* Ivory frame, same treatment as the photo on the About page */
+.login__frame {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 5;
+  max-height: 100%;
+  padding: 0.6rem;
+  background: var(--white);
+}
+
+.login__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0.6rem;
+  background:
+    var(--login-image) center / cover no-repeat,
+    linear-gradient(160deg, #cdb98a 0%, #a58f5b 45%, #6f5f3a 100%);
+}
+
+.login__frame figcaption {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  padding: 3rem 1.5rem 1.4rem;
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(29, 27, 22, 0.6), rgba(29, 27, 22, 0));
+}
+
+/* ---------- Form panel ---------- */
+.login__panel {
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.login__card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login__card h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.login__intro {
+  margin: 0 0 2rem;
+  color: var(--muted);
+}
+
+/* ---------- Fields ---------- */
+.form { display: grid; gap: 1.35rem; }
+
+.field { display: grid; gap: 0.4rem; }
+
+.field__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+label,
+.check span {
+  font-size: 0.92rem;
+}
+
+label { font-weight: 500; }
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder { color: #a39e8c; }
+
+input:hover { border-color: var(--gold); }
+
+input:focus-visible {
+  outline: none;
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 3px rgba(165, 143, 91, 0.3);
+}
+
+input.is-invalid { border-color: var(--error); }
+
+.field__error {
+  margin: 0;
+  min-height: 0;
+  font-size: 0.85rem;
+  color: var(--error);
+}
+
+.field__error:empty { display: none; }
+
+/* Password field with Show / Hide */
+.password { position: relative; }
+
+.password input { padding-right: 4.5rem; }
+
+.password__toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.password__toggle:hover { text-decoration: underline; }
+
+.password__toggle:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold-dark);
+  outline-offset: 3px;
+}
+
+/* Checkbox */
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--gold-dark);
+}
+
+/* ---------- Button + links ---------- */
+.btn {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: var(--gold);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover { background: var(--gold-dark); }
+.btn:active { background: #75643c; }
+
+.link-quiet {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.link-quiet:hover { color: var(--ink); }
+
+.login__switch {
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.login__switch a {
+  margin-left: 0.25rem;
+  color: var(--ink);
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+
+.login__switch a:hover { color: var(--gold-dark); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .login { grid-template-columns: 1fr; }
+
+  .login__visual { padding: 1.25rem 1.25rem 0; }
+
+  .login__frame {
+    aspect-ratio: 16 / 9;
+    max-width: none;
+  }
+
+  .login__panel { padding-top: 2rem; }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .login__visual { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+/* ================= HAMBURGER (hidden on desktop by default) ================= */
+.menu-toggle{
+    display: none;
+}
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.hamburger span{
+    width: 24px;
+    height: 2px;
+    background: black;
+    display: block;
+}
+
+/* ================= MOBILE VIEW (max-width: 768px) ================= */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar{
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        position: relative;
+    }
+    .logo h3{
+        font-size: 18px;
+    }
+    .icons{
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+
+    /* Nav links collapse into a dropdown, toggled by the checkbox */
+    .navbar nav{
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF6F0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+        z-index: 20;
+    }
+    .navbar nav a{
+        padding: 14px 18px;
+        border-bottom: 1px solid #e6ddd0;
+        font-size: 14px;
+    }
+    #menu-toggle:checked ~ nav{
+        max-height: 300px;
+    }
+  }

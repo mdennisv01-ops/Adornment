@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../DISTRIBUTION/CSS Folder/contactus.CSS">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <script src="../api-config.js"></script>
+</head>
+<body>
+    <div class="navbar">
+    <div class="logo">
+        <h3>ATONEMENT.</h3>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+ </label>
+
+    <nav>
+        <a href="clothe-home.html">HOME</a>
+        <a href="About-us.html">ABOUT US</a>
+        <a href="Contactus.html">CONTACT US</a>
+        <div class="drop-down">
+            <input type="checkbox" id="wears-toggle" class="wears-toggle">
+            <label for="wears-toggle"> WEARS <i class="fa-solid fa-angle-down"></i></label>      
+        <div class="dropdown-content">
+        <a href="Gowns.html">GOWNS</a>
+        <a href="Suit.html"> SUITS </a>
+        <a href="Jumpsuit.html">JUMPSUIT</a>
+        <a href="Collars&Ties.html"> COLLARS & TIES </a>
+        <a href="2-piece.html"> TWO-PIECES</a>
+         <a href="AI.html">AI-STUDIO</a>
+        <a href="login.html">LOGIN</a>   
+        </div>
+        </div>
+    </nav>
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bag-shopping"></i>
+    </div>
+</div>
+
+ <section class="Main-container">
+  
+    <div class="text-area">
+  <h2>CONTACT US</h2>
+ <p> We would love to hear from you.Whether you have a question about our collections, need an assistance with an order.Or simply want to share your ATONEMENT story,our team is here to assist you. Please reach out through any of the channels below</p>
+ </div>
+
+  <form class="contact-form" id="contact-form">
+    <input type="text" name="name" placeholder="Name" minlength="2" maxlength="100" required>
+    <input type="tel" name="phone" placeholder="Your Phone number" minlength="7" maxlength="20" required>
+    <textarea name="message" placeholder="Message" rows="5" minlength="5" maxlength="3000" required></textarea>
+    <button type="submit" class="send-btn"> <strong>SEND MESSAGE</strong></button>
+    <p id="contact-status" role="status" aria-live="polite"></p>
+  </form>
+
+ </section>
+    
+  <script src="../api-config.js"></script>
+  <script src="../storefront-api.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async function(event){event.preventDefault();const form=event.currentTarget,button=form.querySelector('[type=submit]'),data=new FormData(form);button.disabled=true;button.textContent='SENDING…';const status=document.getElementById('contact-status');status.textContent='';try{const response=await fetch((window.API_BASE_URL||'http://localhost:4000/api')+'/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:data.get('name').trim(),phone:data.get('phone').trim(),message:data.get('message').trim()})});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.message||'Unable to send your message.');status.textContent='Your message was received. We will get back to you.';form.reset()}catch(error){status.textContent=error.message}finally{button.disabled=false;button.innerHTML='<strong>SEND MESSAGE</strong>'}});
+  </script>
+  <script src="../storefront-nav.js"></script>
+</body>
+</html>

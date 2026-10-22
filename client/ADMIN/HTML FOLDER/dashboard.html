@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard Header</title>
+  <link rel="stylesheet" href="../Distribution Folder/CSS/dashboard.css">
+  <script src="../api-config.js"></script>
+  <script src="../admin-api.js"></script>
+  <script src="../Distribution Folder/Javascript/dashboard.js"></script>
+</head>
+<body>
+
+  <section class="dashboard-header-container">
+    <h1 class="dashboard-title">Seller Dashboard</h1>
+    
+    <div class="welcome-card">
+      <h2 class="welcome-heading">Welcome back, <span id="seller-name">Seller</span>!</h2>
+      
+      <div class="kpi-grid">
+        <!-- Total Sales Card -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Total Sales</span>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value" id="total-sales">$0</span>
+            <span class="kpi-badge positive">Live</span>
+          </div>
+        </div>
+
+        <!-- Active Listings Card -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Active Listings</span>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-value" id="active-listings">0</span>
+            <div class="kpi-subtext">
+              <span class="status-dot green"></span>
+              <span id="inventory-summary">0 total</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Orders Card -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Pending Orders</span>
+            <span class="notification-dot"></span>
+          </div>
+          <div class="kpi-body justify-between">
+            <span class="kpi-value" id="pending-orders">0</span>
+            <a href="#" id="quick-view-btn" class="quick-view-link">» Quick-view</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+    <!-- Part 2: Analytics & Insights Grid -->
+    <section class="dashboard-analytics-grid">
+      <!-- Sales Trends Card -->
+      <div class="analytics-card sales-trends-card">
+        <div class="card-header">
+          <h3 class="card-title">Sales Trends</h3>
+          <p class="card-subtitle">Sales and Orders Trend</p>
+        </div>
+        <div class="chart-container">
+          <div class="y-axis">
+            <span>$30</span>
+            <span>$20</span>
+            <span>$10</span>
+            <span>0</span>
+          </div>
+          <div class="chart-area">
+            <svg class="trend-svg" viewBox="0 0 300 120" preserveAspectRatio="none">
+              <path class="chart-line" d="M 0,110 Q 25,75 40,88 T 80,55 T 120,78 T 160,82 T 200,32 T 240,65 T 280,25 T 300,20" fill="none" stroke="#a08040" stroke-width="2.5"/>
+              <circle cx="300" cy="20" r="4" fill="#a08040" />
+            </svg>
+          </div>
+        </div>
+        <div class="x-axis">
+          <span>Daily 9</span>
+          <span>Last 30 days</span>
+        </div>
+      </div>
+      <!-- Low Stock Alerts Card -->
+      <div class="analytics-card scrollable-card">
+        <div class="card-header">
+          <h3 class="card-title">Low Stock Alerts</h3>
+        </div>
+        <div class="widget-list">
+          <div class="widget-item">
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Radiant Circle Necklace</span>
+              <span class="item-meta">Stock 2</span>
+            </div>
+            <button class="action-btn add-stock-btn" data-product="Radiant Circle Necklace">Add Stock</button>
+          </div>
+
+          <div class="widget-item">
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Classic Solitaire Ring</span>
+              <span class="item-meta">Stock 2</span>
+            </div>
+            <button class="action-btn add-stock-btn" data-product="Classic Solitaire Ring">Add Stock</button>
+          </div>
+
+          <div class="widget-item">
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Dainty Chain Bracelet</span>
+              <span class="item-meta">Stock 1</span>
+            </div>
+            <button class="action-btn add-stock-btn" data-product="Dainty Chain Bracelet">Add Stock</button>
+          </div>
+
+          <div class="widget-item">
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Dainty Chain Earrings</span>
+              <span class="item-meta">Stock 3</span>
+            </div>
+            <button class="action-btn add-stock-btn" data-product="Dainty Chain Earrings">Add Stock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Products Card -->
+      <div class="analytics-card scrollable-card">
+        <div class="card-header">
+          <h3 class="card-title">Recent Products</h3>
+        </div>
+        <div class="widget-list">
+          <div class="widget-item">
+            <span class="rank-tag">#1</span>
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Radiant Circle Necklace</span>
+              <span class="item-meta">45 sold</span>
+            </div>
+          </div>
+
+          <div class="widget-item">
+            <span class="rank-tag">#2</span>
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Luxe Hoop Earrings</span>
+              <span class="item-meta">38 sold</span>
+            </div>
+          </div>
+
+          <div class="widget-item">
+            <span class="rank-tag">#3</span>
+            <div class="item-thumb"><img src="../Distribution Folder/Images/bracelet 4.jpg" alt="" class="product-img"></div>
+            <div class="item-details">
+              <span class="item-name">Dainty Chain Earrings</span>
+              <span class="item-meta">29 sold</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 3: Recent Activity Feed -->
+    <section class="dashboard-activity-container">
+      <div class="analytics-card activity-card">
+        <div class="card-header">
+          <h3 class="card-title">Recent Activity Feed</h3>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <span class="time-stamp">2 mins ago:</span>
+            <span class="activity-text">New order for <strong>Classic Solitaire Ring</strong></span>
+          </li>
+          <li class="activity-item">
+            <span class="time-stamp">30 mins ago:</span>
+            <span class="activity-text">Stock low for <strong>Dainty Chain Bracelet</strong></span>
+          </li>
+          <li class="activity-item">
+            <span class="time-stamp">1 hour ago:</span>
+            <span class="activity-text">AI Studio prompt updated</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Add Stock Modal -->
+  <div id="stock-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="modal-product-name">Update Stock</h3>
+      <p>Enter the additional quantity to add to inventory:</p>
+      <input type="number" id="stock-quantity-input" min="1" value="5" />
+      <div class="modal-actions">
+        <button id="cancel-modal-btn" class="modal-btn secondary">Cancel</button>
+        <button id="confirm-modal-btn" class="modal-btn primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../admin-nav.js"></script>
+</body>
+</html>
+
+
+
+
+ <!-- Part 1: Header & Welcome Section -->
+    <!-- <section class="dashboard-header-container">
+      <h1 class="dashboard-title">Seller Dashboard</h1>
+      
+      <div class="welcome-card">
+        <h2 class="welcome-heading">Welcome back, <span id="seller-name">Seller Name</span>!</h2>
+        
+        <div class="kpi-grid"> -->
+          <!-- Total Sales Card -->
+          <!-- <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Total Sales (This Month)</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-value">$12,450</span>
+              <span class="kpi-badge positive">▲ +15%</span>
+            </div>
+          </div> -->
+
+          <!-- Active Listings Card -->
+          <!-- <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Active Listings</span>
+            </div>
+            <div class="kpi-body">
+              <span class="kpi-value">18</span>
+              <div class="kpi-subtext">
+                <span class="status-dot green"></span>
+                <span>18 of 20 used</span>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Pending Orders Card -->
+          <!-- <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">Pending Orders</span>
+              <span class="notification-dot"></span>
+            </div>
+            <div class="kpi-body justify-between">
+              <span class="kpi-value">4</span>
+              <a href="#" id="quick-view-btn" class="quick-view-link">» Quick-view</a>
+            </div>
+          </div> -->
+
+           <!-- <div class="dashboard-wrapper">
+   
+        </div>
+      </div>
+    </section> -->

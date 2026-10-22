@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | ATONEMENT.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../DISTRIBUTION/CSS Folder/login.css">
+  <script src="../api-config.js"></script>
+  <script src="../storefront-api.js"></script>
+</head>
+<body>
+
+  <!-- Same header pattern as the rest of the site -->
+  <div class="navbar">
+    <div class="logo">
+        <h3>ATONEMENT.</h3>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+    </label>
+
+    <nav>
+        <a href="../HTML FOLDER/clothe-home.html">HOME</a>
+        <a href="../HTML FOLDER/About-us.html">ABOUT US</a>
+          <a href="../HTML FOLDER/Contactus.html">CONTACT US</a>
+        <div class="drop-down">
+        <a href="../HTML FOLDER/Gowns.html">WEARS</a>
+        <i class="fa-solid fa-angle-down"></i>
+        <div class="dropdown-content">
+        <a href="../HTML FOLDER/Gowns.html">GOWNS</a>
+        <a href="../HTML FOLDER/Suit.html"> SUITS </a>
+        <a href="../HTML FOLDER/Jumpsuit.html">JUMPSUIT</a>
+        <a href="../HTML FOLDER/Collars&Ties.html"> COLLARS & TIES </a>
+        <a href="../HTML FOLDER/2-piece.html"> TWO-PIECES</a>
+         <a href="../HTML FOLDER/AI.html">AI-STUDIO</a>
+        <a href="../HTML FOLDER/login.html">LOGIN</a>   
+        </div>
+        </div>
+    </nav>
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <a href="../HTML FOLDER/login.html"><i class="fa-solid fa-user"></i></a>
+        <i class="fa-solid fa-bag-shopping"></i>
+    </div>
+</div>
+
+
+
+  <main class="login">
+
+    <!-- Left: image panel. Set the photo in login.css (--login-image) -->
+    <!-- <aside class="login__visual" aria-hidden="true">
+      <figure class="login__frame">
+        <figcaption>Timeless outfits designed to make you shine.</figcaption>
+      </figure>
+    </aside> -->
+
+    <!-- Right: form -->
+    <section class="login__panel" aria-labelledby="login-title">
+      <div class="login__card">
+        <h1 id="login-title">Welcome back</h1>
+        <p class="login__intro">Sign in to view your bag, saved pieces and orders.</p>
+
+        <form class="form" id="login-form" action="#" method="post" novalidate>
+
+          <div class="field">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" autocomplete="username"
+                   placeholder="Enter your username" required>
+            <p class="field__error" id="username-error" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel"
+                   placeholder="Enter your phone number" required>
+            <p class="field__error" id="phone-error" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <div class="field__row">
+              <label for="password">Password</label>
+              <a class="link-quiet" href="Contactus.html">Need help signing in?</a>
+            </div>
+            <div class="password">
+              <input type="password" id="password" name="password"
+                     autocomplete="current-password" placeholder="Enter your password"
+                     minlength="6" required>
+              <button type="button" class="password__toggle" id="toggle-password"
+                      aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="field__error" id="password-error" role="alert"></p>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="remember">
+            <span>Keep me signed in on this device</span>
+          </label>
+
+          <button type="submit" class="btn">Sign in</button>
+        </form>
+
+        <p class="login__switch">
+          New to Atonement?
+          <a href="register.html">Create an account</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Show / hide password
+    const pw = document.getElementById('password');
+    const toggle = document.getElementById('toggle-password');
+    toggle.addEventListener('click', () => {
+      const show = pw.type === 'password';
+      pw.type = show ? 'text' : 'password';
+      toggle.textContent = show ? 'Hide' : 'Show';
+      toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      toggle.setAttribute('aria-pressed', String(show));
+    });
+
+    // Validate fields and sign in through the storefront API.
+    const form = document.getElementById('login-form');
+    const username = document.getElementById('username');
+    const usernameError = document.getElementById('username-error');
+    const phone = document.getElementById('phone');
+    const phoneError = document.getElementById('phone-error');
+    const pwError = document.getElementById('password-error');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const API_BASE_URL = window.API_BASE_URL || 'http://localhost:4000/api';
+    const registerLink = document.querySelector('.login__switch a');
+    const returnParameter = new URLSearchParams(location.search).get('returnTo');
+    if (registerLink && returnParameter) registerLink.href = 'register.html?returnTo=' + encodeURIComponent(returnParameter);
+
+    function setError(input, box, message) {
+      box.textContent = message;
+      input.classList.toggle('is-invalid', Boolean(message));
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let ok = true;
+
+      if (!username.value.trim()) {
+        setError(username, usernameError, 'Enter your username.'); ok = false;
+      } else {
+        setError(username, usernameError, '');
+      }
+
+      if (!phone.value.trim()) {
+        setError(phone, phoneError, 'Enter your phone number.'); ok = false;
+      } else if (phone.value.trim().length < 7) {
+        setError(phone, phoneError, 'Phone number looks too short.'); ok = false;
+      } else {
+        setError(phone, phoneError, '');
+      }
+
+      if (!pw.value) {
+        setError(pw, pwError, 'Enter your password.'); ok = false;
+      } else if (pw.value.length < 6) {
+        setError(pw, pwError, 'Passwords are at least 6 characters.'); ok = false;
+      } else {
+        setError(pw, pwError, '');
+      }
+
+      if (!ok) return;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Signing in...';
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/auth/customer/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({
+            username: username.value.trim(),
+            password: pw.value,
+            phone: phone.value.trim(),
+          }),
+        });
+
+        const payload = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(payload?.message || 'Login failed. Check your username, phone, and password.');
+        }
+
+        const accessToken = payload?.data?.accessToken;
+        if (accessToken) {
+          localStorage.setItem('adornment_access_token', accessToken);
+        }
+
+        const requested = new URLSearchParams(location.search).get('returnTo');
+        let returnTo = 'clothe-home.html';
+        try { const decoded = decodeURIComponent(requested || ''); if (/^[A-Za-z0-9 _().&-]+\.html$/i.test(decoded)) returnTo = decoded; } catch (_) {}
+        window.location.href = returnTo;
+      } catch (error) {
+        setError(pw, pwError, error.message || 'Unable to sign in right now.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Sign in';
+      }
+    });
+  </script>
+  <script src="../storefront-nav.js"></script>
+</body>
+</html>

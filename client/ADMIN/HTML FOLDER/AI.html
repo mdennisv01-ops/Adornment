@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Studio - Clothing Virtual Try-On</title>
+  <link rel="stylesheet" href="../Distribution Folder/CSS/AI.css">
+  <script src="../api-config.js"></script><script src="../admin-api.js"></script>
+  <script src="../Distribution Folder/Javascript/AI.js" defer></script>
+</head>
+<body>
+
+  <div class="studio-container">
+    <!-- Header Title -->
+    <header class="studio-header">
+      <h1 class="page-title">AI Studio - Clothing Virtual Try-On</h1>
+    </header>
+
+    <!-- Main Workspace Grid (5 Cards/Boxes Layout) -->
+    <main class="studio-grid">
+
+      <!-- COLUMN 1 (Left Side) -->
+      <div class="grid-col col-left">
+        
+        <!-- Box 1: Virtual Fitting Controls -->
+        <section class="card-box">
+          <h2 class="box-title">Virtual Fitting Controls</h2>
+          <label class="section-label">Select Garment</label>
+          
+          <div class="garment-carousel"><p>Loading products…</p></div>
+          <p class="selected-text">Select a product from the catalog.</p>
+        </section>
+
+        <!-- Box 2: Upload Model / Picture -->
+        <section class="card-box">
+          <h2 class="box-title">Upload Model / Picture</h2>
+          
+          <div class="upload-options">
+            <div class="upload-dropzone" id="upload-zone">
+              <div class="uploaded-preview-container" id="upload-preview-wrap">
+                <img alt="Uploaded model photo preview" id="user-photo-img" class="uploaded-photo" hidden>
+                <button class="replace-photo-btn" id="replace-photo-btn" type="button">Choose photo</button>
+              </div>
+              <input type="file" id="photo-file-input" accept="image/jpeg,image/png,image/webp" hidden>
+            </div>
+          </div>
+        </section>
+
+        <!-- Box 3: Refine Scene -->
+        <section class="card-box">
+          <h2 class="box-title">Refine Scene</h2>
+          
+          <div class="control-group">
+            <label class="control-label">Pose</label>
+            <div class="pill-group">
+              <button class="pill-btn active">Standing</button>
+              <button class="pill-btn">Walking</button>
+              <button class="pill-btn">Seated</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Lighting</label>
+            <div class="pill-group">
+              <button class="pill-btn active">Warm</button>
+              <button class="pill-btn">Bright</button>
+              <button class="pill-btn">Natural</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Environment</label>
+            <div class="pill-group">
+              <button class="pill-btn">Studio</button>
+              <button class="pill-btn">Street</button>
+              <button class="pill-btn active">Elegant Room</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- COLUMN 2 (Right Side) -->
+      <div class="grid-col col-right">
+
+        <!-- Box 4: AI Generation Canvas -->
+        <section class="card-box canvas-box">
+          <h2 class="box-title">AI Generation Canvas</h2>
+          <span class="canvas-subtitle">AI Render Preview</span>
+
+          <div class="render-display">
+            <img alt="AI virtual try-on result" class="main-render-img" hidden>
+            
+            <div class="render-progress-overlay" id="render-progress" style="display: none;">
+              <span>Rendering... (80%)</span>
+            </div>
+          </div>
+
+          <div class="canvas-actions">
+            <button class="btn btn-secondary">Set as Cover Photo</button>
+            <button class="btn btn-secondary">Add to Gallery</button>
+            <button class="btn btn-secondary">Sync with Shopify</button>
+          </div>
+
+          <button class="btn btn-primary full-width-btn" id="generate-btn">Generate Variant</button>
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../admin-nav.js"></script>
+</body>
+</html>
