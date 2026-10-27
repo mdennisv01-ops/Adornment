@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const apiOrigin = (process.env.API_ORIGIN || 'http://localhost:4000').replace(/\/$/, '');
+const apiOrigin = (process.env.API_ORIGIN || 'http://localhost:4500').replace(/\/$/, '');
 const nextConfig = {
   output: 'standalone',
   async rewrites() {

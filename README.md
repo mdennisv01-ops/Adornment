@@ -19,7 +19,7 @@ npm run dev
 The storefront opens at `http://localhost:3000`; the merchant workspace is at
 `http://localhost:3000/admin`. Start the API separately using the setup steps
 in [`Backend/README.md`](Backend/README.md). The Next.js server proxies `/api`
-and `/uploads` to `API_ORIGIN`, which defaults to `http://localhost:4000`.
+and `/uploads` to `API_ORIGIN`, which defaults to `http://localhost:4500`.
 For a different API host, set `API_ORIGIN` in the Next.js environment. Add the
 Next.js origin to `CLIENT_ORIGIN` in `Backend/.env` when developing locally.
 
