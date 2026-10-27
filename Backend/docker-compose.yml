@@ -7,7 +7,7 @@ services:
       - "4000:4000"
     env_file: .env
     environment:
-      MONGODB_URI: mongodb://mongo:27017/adornment
+      MONGODB_URI: mongodb+srv://emmanuel90px_db_user:Y2fzluUZ0aUhEyvT@cluster0.prikxmo.mongodb.net/
     depends_on:
       mongo:
         condition: service_healthy

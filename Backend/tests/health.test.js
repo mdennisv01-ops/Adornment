@@ -23,6 +23,16 @@ afterAll(async () => {
   await mongod.stop();
 });
 
+describe('GET /', () => {
+  it('returns API metadata for the server root', async () => {
+    const res = await request(app).get('/');
+    expect(res.status).toBe(200);
+    expect(res.body.success).toBe(true);
+    expect(res.body.data.name).toBe('Adornment API');
+    expect(res.body.data.status).toBe('ok');
+  });
+});
+
 describe('GET /api/health', () => {
   it('returns ok status', async () => {
     const res = await request(app).get('/api/health');

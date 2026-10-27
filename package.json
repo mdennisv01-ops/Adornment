@@ -2,7 +2,22 @@
   "name": "adornment-marketplace",
   "version": "2.0.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start", "lint": "next lint" },
-  "dependencies": { "next": "^15.5.0", "react": "^19.1.0", "react-dom": "^19.1.0" },
-  "devDependencies": {}
+  "scripts": {
+    "dev": "next dev",
+    "web": "next dev",
+    "dev:frontend": "next dev",
+    "dev:api": "cd Backend && npm run dev",
+    "dev:all": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
 }
