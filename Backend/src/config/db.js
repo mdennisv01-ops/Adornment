@@ -39,16 +39,18 @@ async function ensureDevelopmentSeed() {
     }
     let owner = await Staff.findOne({ email: ownerEmail.toLowerCase() });
     if (!owner) {
-      const username = (process.env.OWNER_USERNAME || 'Admin').trim().toLowerCase();
-      owner = await Staff.create({
+      const requestedUsername = (process.env.OWNER_USERNAME || 'admin').trim().toLowerCase();
+      const usernameOwner = await Staff.findOne({ username: requestedUsername });
+      const ownerData = {
         name: process.env.OWNER_NAME || 'Admin',
-        username,
-        email: ownerEmail,
+        email: ownerEmail.toLowerCase(),
         passwordHash: await hashPassword(ownerPassword),
         role: 'OWNER',
         mustChangePassword: false,
-      });
-      logger.info(`Created local owner account for username: ${username}`);
+      };
+      if (!usernameOwner) ownerData.username = requestedUsername;
+      owner = await Staff.create(ownerData);
+      logger.info(`Created owner account for email: ${ownerEmail.toLowerCase()}`);
     }
   }
 
