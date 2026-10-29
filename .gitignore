@@ -5,4 +5,5 @@ coverage/
 .env.local
 .env.*.local
 *.log
+client-dist/
 

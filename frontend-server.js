@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const DIST = {
-  admin: path.join(__dirname, 'client', 'ADMIN'),
-  storefront: path.join(__dirname, 'client', 'MAIN'),
+  admin: path.join(__dirname, 'client-dist', 'ADMIN'),
+  storefront: path.join(__dirname, 'client-dist', 'MAIN'),
 };
 
 const PORT = {
