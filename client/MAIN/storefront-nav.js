@@ -1,5 +1,30 @@
 (function () {
   'use strict';
+
+  var iconPaths = {
+    'fa-angle-down': '<path d="m6 9 6 6 6-6"/>',
+    'fa-user': '<circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.3-4 2.7-6 6.5-6s6.2 2 6.5 6"/>',
+    'fa-bag-shopping': '<path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/>',
+    'fa-magnifying-glass': '<circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.5 4.5"/>'
+  };
+  document.querySelectorAll('i[class*="fa-"]').forEach(function (icon) {
+    var kind = Object.keys(iconPaths).find(function (name) { return icon.classList.contains(name); });
+    if (!kind) return;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('width', '1em');
+    svg.setAttribute('height', '1em');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.8');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('class', 'svg-icon ' + kind);
+    svg.innerHTML = iconPaths[kind];
+    icon.replaceWith(svg);
+  });
+
   function loginReturn(filename) {
     try { const value = decodeURIComponent(filename); return /^[A-Za-z0-9 _().&-]+\.html$/i.test(value) ? value : 'clothe-home.html'; }
     catch (_) { return 'clothe-home.html'; }
