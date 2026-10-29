@@ -11,8 +11,6 @@ let connectPromise = null;
 let memoryServer = null;
 
 async function ensureDevelopmentSeed() {
-  if (env.nodeEnv === 'production') return;
-
   const categories = [
     { name: 'Gowns', slug: 'gowns' },
     { name: 'Suits', slug: 'suits' },
@@ -32,7 +30,13 @@ async function ensureDevelopmentSeed() {
   const ownerEmail = process.env.OWNER_EMAIL;
   const ownerPassword = process.env.OWNER_PASSWORD;
   const temporary = process.env.OWNER_FORCE_PASSWORD_RESET === 'true';
-  if (ownerEmail && ownerPassword && temporary) {
+  if (ownerEmail && ownerPassword) {
+    if (env.nodeEnv === 'production' && temporary) {
+      throw new Error('OWNER_FORCE_PASSWORD_RESET is not allowed in production');
+    }
+    if (env.nodeEnv === 'production' && ownerPassword.length < 12) {
+      throw new Error('OWNER_PASSWORD must be at least 12 characters in production');
+    }
     let owner = await Staff.findOne({ email: ownerEmail.toLowerCase() });
     if (!owner) {
       const username = (process.env.OWNER_USERNAME || 'Admin').trim().toLowerCase();
@@ -42,7 +46,7 @@ async function ensureDevelopmentSeed() {
         email: ownerEmail,
         passwordHash: await hashPassword(ownerPassword),
         role: 'OWNER',
-        mustChangePassword: true,
+        mustChangePassword: false,
       });
       logger.info(`Created local owner account for username: ${username}`);
     }
