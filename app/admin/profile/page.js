@@ -41,7 +41,7 @@ export default function AdminProfile() {
     {error && <p style={{ color: '#a33' }}>{error}</p>}
     <form className="admin-content" onSubmit={saveProfile} style={{ marginBottom: 16 }}>
       <div className="admin-toolbar"><h2 style={{ font: '20px var(--serif)', margin: 0 }}>Personal credentials</h2><button className="admin-btn">Save details</button></div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }}>
+      <div className="admin-form-grid admin-form-grid-two">
         <label>Name<input value={profile.name} minLength={2} required onChange={(e) => setProfile({ ...profile, name: e.target.value })} /></label>
         <label>Username<input value={profile.username} minLength={3} required onChange={(e) => setProfile({ ...profile, username: e.target.value.toLowerCase() })} /></label>
         <label>Email<input type="email" value={profile.email} required onChange={(e) => setProfile({ ...profile, email: e.target.value })} /></label>
@@ -50,7 +50,7 @@ export default function AdminProfile() {
     </form>
     <form className="admin-content" onSubmit={submitPassword}>
       <div className="admin-toolbar"><h2 style={{ font: '20px var(--serif)', margin: 0 }}>Change password</h2><button className="admin-btn">Update password</button></div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 12 }}>
+      <div className="admin-form-grid admin-form-grid-three">
         <label>Current password<input type="password" autoComplete="current-password" value={passwords.currentPassword} required onChange={(e) => setPasswords({ ...passwords, currentPassword: e.target.value })} /></label>
         <label>New password<input type="password" autoComplete="new-password" minLength={12} maxLength={72} value={passwords.newPassword} required onChange={(e) => setPasswords({ ...passwords, newPassword: e.target.value })} /></label>
         <label>Confirm password<input type="password" autoComplete="new-password" minLength={12} maxLength={72} value={passwords.confirmPassword} required onChange={(e) => setPasswords({ ...passwords, confirmPassword: e.target.value })} /></label>
