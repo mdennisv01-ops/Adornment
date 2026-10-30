@@ -2,6 +2,8 @@ const { z } = require('zod');
 
 const updateStaffProfileSchema = z.object({
   name: z.string().min(2).max(100).optional(),
+  username: z.string().trim().toLowerCase().min(3).max(40).regex(/^[a-z0-9_-]+$/).optional(),
+  email: z.string().trim().toLowerCase().email().max(254).optional(),
   phone: z.string().min(7).max(20).optional(),
 });
 

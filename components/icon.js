@@ -14,6 +14,11 @@ const paths = {
   plus: <path d="M12 5v14M5 12h14"/>,
   minus: <path d="M5 12h14"/>,
   check: <path d="m5 12 4 4L19 7"/>,
+  grid: <><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></>,
+  box: <><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3M8 12h8"/></>,
+  receipt: <><path d="M6 3v18l3-2 3 2 3-2 3 2V3l-3 2-3-2-3 2-3-2Z"/><path d="M9 9h6M9 13h6"/></>,
+  user: <><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.3-4 2.7-6 6.5-6s6.2 2 6.5 6"/></>,
+  logout: <><path d="M10 4H4v16h6M15 8l4 4-4 4M19 12H8"/></>,
 };
 
 export default function Icon({ name, size = 20, className = '', ...props }) {

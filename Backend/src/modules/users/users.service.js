@@ -11,6 +11,20 @@ async function getStaffProfile(id) {
 async function updateStaffProfile(id, patch) {
   const staff = await Staff.findById(id);
   if (!staff) throw ApiError.notFound('Staff not found');
+
+  if (patch.email || patch.username) {
+    const conflicts = await Staff.findOne({
+      _id: { $ne: staff._id },
+      $or: [
+        ...(patch.email ? [{ email: patch.email.toLowerCase() }] : []),
+        ...(patch.username ? [{ username: patch.username.toLowerCase() }] : []),
+      ],
+    });
+    if (conflicts) throw ApiError.conflict('Email or username is already in use');
+  }
+
+  if (patch.email) patch.email = patch.email.toLowerCase();
+  if (patch.username) patch.username = patch.username.toLowerCase();
   Object.assign(staff, patch);
   await staff.save();
   return staff.toSafeJSON();
